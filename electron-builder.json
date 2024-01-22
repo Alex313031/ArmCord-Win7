@@ -1,0 +1,60 @@
+{
+    "electronVersion": "22.3.27",
+    "asar": true,
+    "productName": "ArmCord",
+    "appId": "com.alex313031.armcord",
+    "generateUpdatesFilesForAllChannels": false,
+    "directories": {
+        "app": ".",
+        "buildResources": "build",
+        "output": "dist"
+    },
+    "files": ["!*", "assets", "node_modules", "ts-out", "package.json", "LICENSE.md"],
+    "extraFiles": [
+        {
+            "from": "assets/icon.png"
+        }
+    ],
+    "linux": {
+        "target": ["zip", "deb", "appimage"],
+        "icon": "build/icons",
+        "maintainer": "Alex313031",
+        "vendor": "Alex313031",
+        "synopsis": "ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight. Legacy OS Builds.",
+        "category": "Network;",
+        "executableName": "armcord",
+        "artifactName": "armcord_${version}_${arch}.${ext}",
+        "desktop": {
+            "Name": "ArmCord",
+            "StartupWMClass": "armcord",
+            "Keywords": "discord;arm;",
+            "Icon": "armcord"
+        }
+    },
+    "win": {
+        "target": ["zip", "portable", "nsis"],
+        "publisherName": "Alex313031",
+        "executableName": "ArmCord",
+        "artifactName": "ArmCord_win64_${version}_${arch}.${ext}"
+    },
+    "nsis": {
+        "shortcutName": "ArmCord",
+        "artifactName": "ArmCord_setup_${version}_${arch}.${ext}",
+        "uninstallDisplayName": "ArmCord ${version}",
+        "license": "LICENSE.md",
+        "include": "build/installer.nsh",
+        "deleteAppDataOnUninstall": false,
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true
+    },
+    "portable": {
+        "artifactName": "ArmCord_portable_win64_${version}_${arch}.${ext}"
+    },
+    "mac": {
+        "category": "public.app-category.social-networking",
+        "icon": "build/icon.icns",
+        "darkModeSupport": true,
+        "artifactName": "ArmCord_${version}_macos_${arch}.${ext}",
+        "target": ["dmg", "zip"]
+    }
+}
