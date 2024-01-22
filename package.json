@@ -2,7 +2,7 @@
     "name": "armcord",
     "appName": "armcord",
     "productName": "ArmCord",
-    "applicationId": "com.alex313031.quark-player",
+    "applicationId": "com.alex313031.armcord",
     "version": "3.3.1",
     "description": "ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight. Legacy OS Builds.",
     "main": "ts-out/main.js",
