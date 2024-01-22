@@ -2,6 +2,7 @@
 <div align="center">
 <img src="https://armcord.app/logo.png" width="520">
  <br>ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight. 
+ <br>Windows 7/8/8.1 Builds!
 </div>
 
 # Features
