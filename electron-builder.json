@@ -33,6 +33,7 @@
     },
     "win": {
         "target": ["zip", "portable", "nsis"],
+        "arch": ["x64", "ia32"],
         "icon": "build/icon.ico",
         "publisherName": "Alex313031",
         "executableName": "ArmCord",
