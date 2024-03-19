@@ -3,7 +3,7 @@
     "appName": "armcord",
     "productName": "ArmCord",
     "applicationId": "com.alex313031.armcord",
-    "version": "3.3.1",
+    "version": "3.3.2",
     "description": "ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight. Legacy OS Builds.",
     "main": "ts-out/main.js",
     "engines": {
@@ -44,7 +44,7 @@
         "copyfiles": "2.4.1",
         "electron": "22.3.27",
         "electron-builder": "23.6.0",
-        "eslint": "8.43.0",
+        "eslint": "8.44.0",
         "eslint-config-dmitmel": "git+https://github.com/dmitmel/eslint-config-dmitmel.git",
         "eslint-plugin-node": "11.1.0",
         "eslint-plugin-prettier": "4.2.1",
