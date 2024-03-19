@@ -16,6 +16,7 @@ export function createSetupWindow(): void {
         webPreferences: {
             sandbox: false,
             spellcheck: false,
+            experimentalFeatures: true,
             preload: path.join(__dirname, "preload.js")
         }
     });

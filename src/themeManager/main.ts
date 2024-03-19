@@ -107,6 +107,7 @@ export function createTManagerWindow(): void {
             autoHideMenuBar: true,
             webPreferences: {
                 sandbox: false,
+                experimentalFeatures: true,
                 preload: path.join(__dirname, "preload.js")
             }
         });
