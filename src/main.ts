@@ -62,8 +62,6 @@ if (!app.requestSingleInstanceLock() && getConfigSync("multiInstance") == (false
     // kill if 2nd instance
     app.quit();
 } else {
-    // Force enable GPU acceleration
-    app.commandLine.appendSwitch("ignore-gpu-blocklist");
     app.commandLine.appendSwitch("disable-features", "WidgetLayering"); // fix dev tools layers
     // Your data now belongs to CCP
     crashReporter.start({uploadToServer: false});
