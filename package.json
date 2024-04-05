@@ -1,10 +1,13 @@
 {
-    "name": "ArmCord",
-    "version": "3.3.0",
-    "description": "ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight.",
+    "name": "armcord",
+    "appName": "armcord",
+    "productName": "ArmCord",
+    "applicationId": "com.alex313031.armcord",
+    "version": "3.3.2",
+    "description": "ArmCord is a custom client designed to enhance your Discord experience while keeping everything lightweight. Legacy OS Builds.",
     "main": "ts-out/main.js",
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=16.0.0"
     },
     "scripts": {
         "build": "tsc && copyfiles -u 1 src/**/*.html src/**/**/*.css src/**/**/*.js ts-out/ && copyfiles package.json ts-out/ && copyfiles assets/**/** ts-out/",
@@ -13,83 +16,52 @@
         "startThemeManager": "npm run build && electron ./ts-out/main.js themes",
         "startKeybindManager": "npm run build && electron ./ts-out/main.js keybinds",
         "startWayland": "npm run build && electron ./ts-out/main.js --ozone-platform-hint=auto --enable-features=WebRTCPipeWireCapturer,WaylandWindowDecorations",
-        "package": "npm run build && electron-builder",
-        "packageQuick": "npm run build && electron-builder --dir",
+        "package": "npm run build && electron-builder --dir",
+        "distLinux": "npm run build && electron-builder -l --x64 && electron-builder -l --arm64",
+        "distWin": "npm run build && electron-builder -w --x64 && electron-builder -w --ia32",
+        "distMac": "npm run build && electron-builder -m --x64 && electron-builder -m --arm64",
         "format": "prettier --write src *.json",
         "lint": "eslint src --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
         "CIbuild": "npm run build && electron-builder --linux zip && electron-builder --windows zip && electron-builder --macos zip",
-        "prepare": "git config --local core.hooksPath .hooks/"
+        "prepare": "git config --local core.hooksPath .hooks/",
+        "clean": "rimraf out/ && rimraf dist/ && rimraf ts-out/ && rimraf node_modules",
+        "distclean": "rimraf out/ && rimraf dist/ && rimraf ts-out/",
+        "burn": "rimraf package-lock.json && rimraf yarn.lock"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/armcord/armcord.git"
+        "url": "git+https://github.com/Alex313031/ArmCord-Win7.git"
     },
-    "author": "smartfrigde",
+    "author": "Alex313031",
     "license": "OSL-3.0",
     "bugs": {
-        "url": "https://github.com/armcord/armcord/issues"
+        "url": "https://github.com/Alex313031/ArmCord-Win7/issues"
     },
-    "homepage": "https://github.com/armcord/armcord#readme",
+    "homepage": "https://github.com/Alex313031/ArmCord-Win7#readme",
     "devDependencies": {
-        "@types/node": "^18.11.9",
-        "@types/ws": "^8.5.3",
-        "@typescript-eslint/eslint-plugin": "^5.59.2",
-        "@typescript-eslint/parser": "^5.59.2",
-        "copyfiles": "^2.4.1",
-        "electron": "29.1.4",
-        "electron-builder": "^24.9.1",
-        "eslint": "^8.40.0",
-        "eslint-config-dmitmel": "github:dmitmel/eslint-config-dmitmel",
-        "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "prettier": "^2.7.1",
-        "typescript": "^4.9.3"
+        "@types/node": "^16.x",
+        "@types/ws": "8.5.10",
+        "@typescript-eslint/eslint-plugin": "5.62.0",
+        "@typescript-eslint/parser": "5.62.0",
+        "copyfiles": "2.4.1",
+        "electron": "22.3.27",
+        "electron-builder": "23.6.0",
+        "eslint": "8.44.0",
+        "eslint-config-dmitmel": "git+https://github.com/dmitmel/eslint-config-dmitmel.git",
+        "eslint-plugin-node": "11.1.0",
+        "eslint-plugin-prettier": "4.2.1",
+        "prettier": "2.8.8",
+        "rimraf": "3.0.2",
+        "typescript": "4.9.5"
     },
     "dependencies": {
+        "@electron/remote": "2.1.2",
         "arrpc": "file:src/arrpc",
-        "cross-fetch": "^3.1.5",
-        "electron-context-menu": "github:ArmCord/electron-context-menu",
-        "extract-zip": "^2.0.1",
-        "v8-compile-cache": "^2.3.0",
-        "ws": "^8.11.0"
+        "cross-fetch": "3.1.8",
+        "electron-context-menu": "git+https://github.com/ArmCord/electron-context-menu.git",
+        "extract-zip": "2.0.1",
+        "v8-compile-cache": "2.4.0",
+        "ws": "8.16.0"
     },
-    "build": {
-        "nsis": {
-            "include": "build/installer.nsh",
-            "allowToChangeInstallationDirectory": true,
-            "license": "LICENSE",
-            "oneClick": false
-        },
-        "files": [
-            "!*",
-            "assets",
-            "node_modules",
-            "ts-out",
-            "package.json",
-            "LICENSE"
-        ],
-        "appId": "com.smartfridge.armcord",
-        "productName": "ArmCord",
-        "mac": {
-            "category": "Network"
-        },
-        "linux": {
-            "icon": "build/icon.icns",
-            "category": "Network",
-            "maintainer": "smartfridge@vivaldi.net",
-            "target": [
-                "deb",
-                "tar.gz",
-                "rpm",
-                "AppImage"
-            ]
-        },
-        "appx": {
-            "identityName": "53758smartfrigde.ArmCord",
-            "publisher": "CN=EAB3A6D3-7145-4623-8176-D579F573F339",
-            "publisherDisplayName": "smartfrigde",
-            "applicationId": "smartfrigde.ArmCord"
-        }
-    },
-    "packageManager": "pnpm@8.10.2"
+    "packageManager": "pnpm@7.33.5"
 }

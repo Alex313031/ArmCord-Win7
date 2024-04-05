@@ -2,7 +2,7 @@
 **/*.png
 **/*.ico
 **/*.woff
-LICENSE
+LICENSE.md
 .gitignore
 
 node_modules

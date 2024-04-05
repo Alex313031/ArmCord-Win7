@@ -24,6 +24,7 @@ export function createSettingsWindow(): void {
             autoHideMenuBar: true,
             webPreferences: {
                 sandbox: false,
+                experimentalFeatures: true,
                 preload: path.join(__dirname, "preload.js")
             }
         });

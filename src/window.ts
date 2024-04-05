@@ -61,7 +61,7 @@ async function doAfterDefiningTheWindow(): Promise<void> {
         mainWindow.hide(); // please don't flashbang the user
     }
     if ((await getConfig("windowStyle")) == "transparency" && process.platform === "win32") {
-        mainWindow.setBackgroundMaterial("mica");
+        // mainWindow.setBackgroundMaterial("mica");
         if ((await getConfig("startMinimized")) == false) {
             mainWindow.show();
         }
@@ -302,6 +302,7 @@ export async function createCustomWindow(): Promise<void> {
         webPreferences: {
             webviewTag: true,
             sandbox: false,
+            experimentalFeatures: true,
             preload: path.join(__dirname, "preload/preload.js"),
             spellcheck: await getConfig("spellcheck")
         }
@@ -324,6 +325,7 @@ export async function createNativeWindow(): Promise<void> {
         webPreferences: {
             webviewTag: true,
             sandbox: false,
+            experimentalFeatures: true,
             preload: path.join(__dirname, "preload/preload.js"),
             spellcheck: await getConfig("spellcheck")
         }
@@ -346,6 +348,7 @@ export async function createTransparentWindow(): Promise<void> {
         webPreferences: {
             sandbox: false,
             webviewTag: true,
+            experimentalFeatures: true,
             preload: path.join(__dirname, "preload/preload.js"),
             spellcheck: await getConfig("spellcheck")
         }
@@ -363,6 +366,7 @@ export async function createInviteWindow(code: string): Promise<void> {
         autoHideMenuBar: true,
         webPreferences: {
             sandbox: false,
+            experimentalFeatures: true,
             spellcheck: await getConfig("spellcheck")
         }
     });

@@ -1,6 +1,6 @@
 node_modules
 out/
 dist
+release/
 ts-out/
 ts-out
-package-lock.json
