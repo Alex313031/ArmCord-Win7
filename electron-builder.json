@@ -24,6 +24,7 @@
         "category": "Network;",
         "executableName": "armcord",
         "artifactName": "armcord_${version}_${arch}.${ext}",
+        "executableArgs": ["--ozone-platform-hint=auto"],
         "desktop": {
             "Name": "ArmCord",
             "StartupWMClass": "armcord",
@@ -39,7 +40,7 @@
         "icon": "build/icon.ico",
         "publisherName": "Alex313031",
         "executableName": "ArmCord",
-        "artifactName": "ArmCord_win64_${version}_${arch}.${ext}"
+        "artifactName": "ArmCord_${version}_${arch}.${ext}"
     },
     "nsis": {
         "shortcutName": "ArmCord",
@@ -56,7 +57,7 @@
         "applicationId": "alex313031.ArmCord"
     },
     "portable": {
-        "artifactName": "ArmCord_portable_win64_${version}_${arch}.${ext}"
+        "artifactName": "ArmCord_portable_${version}_${arch}.${ext}"
     },
     "mac": {
         "category": "public.app-category.social-networking",

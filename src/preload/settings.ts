@@ -1,7 +1,8 @@
 import * as path from "path";
 import * as fs from "fs";
 import {addStyle} from "../utils";
-import type {WebviewTag} from "electron";
+
+type WebviewTag = Electron.WebviewTag;
 
 var webview = `<webview src="${path.join("file://", __dirname, "../", "/settings/settings.html")}" preload="${path.join(
     "file://",

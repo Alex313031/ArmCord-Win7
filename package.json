@@ -24,7 +24,7 @@
         "lint": "eslint src --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
         "CIbuild": "npm run build && electron-builder --linux zip && electron-builder --windows zip && electron-builder --macos zip",
         "prepare": "git config --local core.hooksPath .hooks/",
-        "clean": "rimraf out/ && rimraf dist/ && rimraf ts-out/ && rimraf node_modules",
+        "clean": "rimraf out/ && rimraf dist/ && rimraf ts-out/ && rimraf src/arrpc/node_modules && rimraf node_modules",
         "distclean": "rimraf out/ && rimraf dist/ && rimraf ts-out/",
         "burn": "rimraf package-lock.json && rimraf yarn.lock"
     },
@@ -61,7 +61,7 @@
         "electron-context-menu": "git+https://github.com/ArmCord/electron-context-menu.git",
         "extract-zip": "2.0.1",
         "v8-compile-cache": "2.4.0",
-        "ws": "8.16.0"
+        "ws": "8.17.0"
     },
     "packageManager": "pnpm@7.33.5"
 }
