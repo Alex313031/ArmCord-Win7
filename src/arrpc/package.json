@@ -1,6 +1,6 @@
 {
     "name": "arrpc",
-    "version": "3.0.0",
+    "version": "3.4.0",
     "description": "Open Discord RPC server for atypical setups",
     "main": "src/index.js",
     "scripts": {
@@ -17,6 +17,6 @@
     },
     "homepage": "https://github.com/OpenAsar/arrpc#readme",
     "dependencies": {
-        "ws": "^8.11.0"
+        "ws": "8.16.0"
     }
 }
